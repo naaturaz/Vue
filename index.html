@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta name="viewport" content="width=device-width, initial-scale">
+	<title>Product App</title>
+	<link rel="stylesheet" type="text/css" href="product_style.css">
+	</head>
+	<body>
+
+		<div class="nav-bar"></div>
+
+		<div id="app">
+
+			<div class="cart">
+				<p>Cart({{cart.length}})</p>
+			</div>
+
+			<product :premium="premium" @add-to-cart="addToCart" @remove-from-cart="removeFromCart"></product>
+			<product :premium="false" :details="details" @add-to-cart="addToCart" @remove-from-cart="removeFromCart"></product>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script src="main.js"></script>
+
+	</body>
+</html>
