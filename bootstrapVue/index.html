@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta name="viewport" content="width=device-width, initial-scale">
+	<title>Bootstrap Vue</title>
+
+	<link rel="stylesheet" type="text/css" href="product_style.css">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	</head>
+	<body>
+
+		<div class="nav-bar"></div>
+
+		<div id="app">
+
+			<div class="cart">
+				<p>Cart({{cart.length}})</p>
+			</div>
+
+			<mybreadcrumb></mybreadcrumb>
+
+
+			<div class="container">
+				<card class="item left">
+				  <p>The content below this paragraph is rendered in the right container by PortalVue</p>
+				  
+				  <portal to="right">
+					<p class="red">This is content from the left side. The cool part is, it works across components, so you can send your content anywhere!</p>
+				  </portal>
+				  
+				</card>
+				<card class="item right">
+				  <portal-target name="right"></portal-target>
+				</card>
+
+				<card class="item right">
+				  <portal-target name="right"></portal-target>
+				</card>
+				
+			  </div>
+
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script src="http://unpkg.com/portal-vue"></script>
+
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		Official Themes
+		Take Bootstrap 4 to the next level with official premium themes—toolkits built on Bootstrap with new components and plugins, docs, and build tools.
+		
+
+
+		<script src="main.js"></script>
+
+	</body>
+</html>
