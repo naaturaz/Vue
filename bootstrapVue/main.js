@@ -1,5 +1,16 @@
 Vue.config.devtools = true;
 
+// app.js
+import Vue from 'vue';
+import BootstrapVue from 'bootstrap-vue';
+
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+import './custom.scss';
+
+Vue.use(BootstrapVue);
+
+
 Vue.use(PortalVue);
 
 Vue.component('mybreadcrumb', {
@@ -31,23 +42,23 @@ Vue.component('mybreadcrumb', {
 var app = new Vue({
 	el: '#app',
 	data: {
-		premium: true,
-		details: ["90% Satin", "5% Silk", "5% Gold"],
-		cart: [],
-
+		name: 'BootstrapVue',
+		show: true
 	},
-	methods: {
-		addToCart(id) {
-			this.cart.push(id);
-		},
-		removeFromCart(id) {
-			let index = this.cart.indexOf(id);
-			this.cart.splice(index, 1);
-		},
-		updateProduct(index) {
-			this.selectedVariant = index;
+	watch: {
+		show(newVal) {
+			console.log('Alert is now ' + (newVal ? 'visible' : 'hidden'))
 		}
 	},
+	methods: {
+		toggle() {
+			console.log('Toggle button clicked')
+			this.show = !this.show
+		},
+		dismissed() {
+			console.log('Alert dismissed')
+		}
+	}
 });
 
 window.__VUE_DEVTOOLS_GLOBAL_HOOK__.Vue = app.constructor;

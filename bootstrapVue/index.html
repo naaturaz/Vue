@@ -1,60 +1,111 @@
-<!DOCTYPE html>
-<html>
-	<head>
-	<meta name="viewport" content="width=device-width, initial-scale">
-	<title>Bootstrap Vue</title>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<link rel="stylesheet" type="text/css" href="product_style.css">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
 
-	</head>
-	<body>
+    <title>Bootstrap Vue</title>
+  </head>
+  <body>
 
-		<div class="nav-bar"></div>
-
-		<div id="app">
-
-			<div class="cart">
-				<p>Cart({{cart.length}})</p>
-			</div>
-
-			<mybreadcrumb></mybreadcrumb>
-
-
-			<div class="container">
-				<card class="item left">
-				  <p>The content below this paragraph is rendered in the right container by PortalVue</p>
-				  
-				  <portal to="right">
-					<p class="red">This is content from the left side. The cool part is, it works across components, so you can send your content anywhere!</p>
-				  </portal>
-				  
-				</card>
-				<card class="item right">
-				  <portal-target name="right"></portal-target>
-				</card>
-
-				<card class="item right">
-				  <portal-target name="right"></portal-target>
-				</card>
-				
-			  </div>
-
-		</div>
 
 		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 		<script src="http://unpkg.com/portal-vue"></script>
-
+	
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-		Official Themes
-		Take Bootstrap 4 to the next level with official premium themes—toolkits built on Bootstrap with new components and plugins, docs, and build tools.
 		
+		<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+		
+	<h1>Bootstrap Vue</h1>
+	
+	<div id="app">
+
+		<div>
+			<b-button size="sm" @click="toggle">
+				{{ show ? 'Hide' : 'Show' }} Alert
+			</b-button>
+			<b-alert
+				v-model="show"
+				class="mt-3"
+				dismissible
+				@dismissed="dismissed"
+			>
+				Hello {{ name }}!
+			</b-alert>
+		</div>
 
 
-		<script src="main.js"></script>
+		<div>
+			<b-nav>
+				<b-nav-item active>Active</b-nav-item>
+				<b-nav-item>Link</b-nav-item>
+				<b-nav-item>Another Link</b-nav-item>
+				<b-nav-item disabled>Disabled</b-nav-item>
+			</b-nav>
+		</div>
 
-	</body>
+		<mybreadcrumb></mybreadcrumb>
+		<h2>Example heading <b-badge>New</b-badge></h2>
+
+		<b-img src="https://picsum.photos/1024/400/?image=41" fluid alt="Responsive image"></b-img>
+
+		<div class="text-center">
+			<b-spinner label="Spinning"></b-spinner>
+			<b-spinner type="grow" label="Spinning"></b-spinner>
+			<b-spinner variant="primary" label="Spinning"></b-spinner>
+			<b-spinner variant="primary" type="grow" label="Spinning"></b-spinner>
+			<b-spinner variant="success" label="Spinning"></b-spinner>
+			<b-spinner variant="success" type="grow" label="Spinning"></b-spinner>
+		</div>
+		
+		<div class="container">
+			<card class="item left">
+				<p>The content below this paragraph is rendered in the right container by PortalVue</p>
+				
+				<portal to="right">
+				<p class="red">This is content from the left side. The cool part is, it works across components, so you can send your content anywhere!</p>
+				</portal>
+				
+			</card>
+			<card class="item right">
+				<portal-target name="right"></portal-target>
+			</card>
+
+			<card class="item right">
+				<portal-target name="right"></portal-target>
+			</card>
+		</div>
+
+		<div>
+			<b-card no-body class="overflow-hidden" style="max-width: 540px;">
+				<b-row no-gutters>
+				<b-col md="6">
+					<b-card-img src="https://picsum.photos/400/400/?image=20" class="rounded-0"></b-card-img>
+				</b-col>
+				<b-col md="6">
+					<b-card-body title="Horizontal Card">
+					<b-card-text>
+						This is a wider card with supporting text as a natural lead-in to additional content.
+						This content is a little bit longer.
+					</b-card-text>
+					</b-card-body>
+				</b-col>
+				</b-row>
+			</b-card>
+		</div>
+
+	</div>
+
+	
+  </body>
 </html>
